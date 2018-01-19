@@ -8,20 +8,13 @@ if len(sys.argv) != 8:
 
 [nam, fx, fy, ax, ay, th, dt, n] = sys.argv
 
-t = np.fromfunction(lambda i: i*float(dt),(1,n))
-x = np.fromfunction(lambda i: float(ax)*np.cos(2*np.pi*(float(fx)**t[i])),(1,n))
-y = np.fromfunction(lambda i: float(ay)*np.sin(2*np.pi*(float(fy)**t[i])),(1,n))
-z = np.fromfunction(lambda i: x[i]+y[i],(1,n))
+t=x=y=z = np.zeros((1,int(n)))
 
-#x = []
-#y = []
-#z = []
-
-#for i in range(int(n)):
-#    t = i * float(dt)
-#    x.append(float(ax)*np.cos(2*np.pi*(float(fx)**t)))
-#    y.append(float(ay)*np.sin(2*np.pi*(float(fy)**t + float(th))))
-#    z.append(x[i] + y[i])
+for i in range(int(n)):
+    t[i] = i*float(dt)
+    x[i] = float(ax)*np.cos(2*np.pi*(float(fx)**t[i]))
+    y[i] = float(ay)*np.sin(2*np.pi*(float(fy)**t[i]))
+    z[i] = x[i]+y[i]
 
 plt.plot(x,y)
 plt.show()
