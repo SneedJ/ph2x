@@ -18,3 +18,8 @@ for i in range(int(n)):
 
 plt.plot(x,y)
 plt.show()
+
+f = open('ph20_1_output.txt','w')
+
+for i in range(int(n)):
+    f.write(str(t[i])+'\t'+str(x[i])+'\t'+str(y[i])+'\t'+str(z[i])+'\n')
